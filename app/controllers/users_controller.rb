@@ -13,11 +13,19 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/users" do
-    redirect "/users"
+    if !params[:username].empty? && !params[:password].empty? && !params[:email].empty?
+    user = User.create(username: params[:username], password: params[:password], email: params[:email])
+    session[:user_id] = user.id
+    redirect "/users/#{user.id}"
+    else
+      redirect "/users/new"
+    end
   end
 
   # GET: /users/5
   get "/users/:id" do
+    user = User.find_by(params[:id])
+    @posts = user.posts 
     erb :"/users/show.html"
   end
 

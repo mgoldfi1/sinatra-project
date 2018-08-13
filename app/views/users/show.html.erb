@@ -1,1 +1,9 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h1>Your Movie Reviews</h1>
+<%@posts.each do |post|%>
+  <h2><%= post.movie.title(post.movie.year)%></h2>
+  <h3><%= post.movie.rating%></h3>
+  <br>
+  <p><%= post.content%></p>
+  <br>
+  Your rating: <%=post.user_rating%>
+  <%end%>
