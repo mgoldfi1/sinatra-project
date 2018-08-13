@@ -25,7 +25,8 @@ class UsersController < ApplicationController
   # GET: /users/5
   get "/users/:id" do
     user = User.find_by(params[:id])
-    @posts = user.posts 
+    @session = session 
+    @posts = user.posts
     erb :"/users/show.html"
   end
 

@@ -1,3 +1,4 @@
+require 'pry'
 class PostsController < ApplicationController
 
   # GET: /posts

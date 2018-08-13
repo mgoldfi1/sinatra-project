@@ -1,4 +1,7 @@
 <h1>Your Movie Reviews</h1>
+<%if @session[:user_id]%>
+<a href="/posts/new">Write a new Review</a>
+<%end%>
 <%@posts.each do |post|%>
   <h2><%= post.movie.title(post.movie.year)%></h2>
   <h3><%= post.movie.rating%></h3>
