@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   # GET: /posts
   get "/posts" do
+    @users = User.all
     erb :"/posts/index.html"
   end
 

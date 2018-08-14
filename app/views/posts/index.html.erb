@@ -1,1 +1,11 @@
-<h1>This is the Model's index page.</h1>
+<h1>See What People Have Been Posting About!</h1>
+<%@users.each do |user|%>
+<%user.posts.each do |post|%>
+<h2><%=post.movie.title%>(<%=post.movie.year%>)</h2>
+<br>
+<p><%=post.content%></p>
+<br>
+User Rating: <%=post.user_rating%>
+<br>
+<%end%>
+<%end%>
