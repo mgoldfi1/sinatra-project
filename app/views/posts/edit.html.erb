@@ -1,1 +1,17 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Edit</h1>
+<form method="post" action="/posts/<%=@post.id%>/edit">
+<br>
+<h2> Movie: <%=@post.movie.title%></h2>
+<br>
+Change Your Review:
+<br>
+<textarea name="content" style="width:400px; height:600px">
+
+</textarea>
+<br>
+Change Your Rating
+<br>
+<input type="text" name="user_rating" placeholder="7.5/10"></input>
+<br>
+<input type="submit" value="Save Changes"></input>
+</form>
