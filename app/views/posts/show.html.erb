@@ -2,3 +2,6 @@
 <p> <%=@post.content%> </p>
 <br>
 This user gave this movie a rating of <%=@post.user_rating%>
+<br>
+<a href='/posts'>Reivews from other users</a>
+<a href='/users/<%=@post.user.id%>'>More Reviews From This User</a>
