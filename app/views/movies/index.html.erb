@@ -1,1 +1,7 @@
-<h1>This is the Model's index page.</h1>
+<h1>Movies You Can Review</h1>
+<ul>
+<%Movie.all.sort_by {|x| x.title}.each do |movie|%>
+<li><a href="/movies/<%=movie.id%>"><%=movie.title%>(<%=movie.year%>)</a></li>
+<br>
+<%end%>
+</ul>

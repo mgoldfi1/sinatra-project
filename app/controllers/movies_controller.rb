@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
 
   # GET: /movies
   get "/movies" do
+    
     erb :"/movies/index.html"
   end
 
