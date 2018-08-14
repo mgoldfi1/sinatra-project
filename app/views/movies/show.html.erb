@@ -1,1 +1,14 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h1><%=@movie.title%>(<%=@movie.year%>)</h1>
+<h2>Critic Rating:<%=@movie.rating%></h2>
+<%if @session[:user_id]%>
+<a href='/posts/new'>Write a Review</a>
+<%end%>
+<h3> Reviews </h3>
+<div>
+<%@movie.posts.each do |post|%>
+<h4>by <a href="/users/<%=post.user.id%>"><%=post.user.username%></a></h4>
+<br>
+<p><%=post.content%></p>
+User Rating: <%=post.user_rating%>
+<%end%>
+</div>
