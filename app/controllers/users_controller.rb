@@ -1,4 +1,4 @@
-
+require 'pry'
 class UsersController < ApplicationController
 
   # GET: /users
@@ -24,8 +24,7 @@ class UsersController < ApplicationController
 
   # GET: /users/5
   get "/users/:id" do
-    @user = User.find_by(params[:id])
-    @session = session
+    @user = User.find_by_id(params[:id])
     @posts = @user.posts
     erb :"/users/show.html"
   end
