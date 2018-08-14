@@ -8,12 +8,22 @@ class PostsController < ApplicationController
 
   # GET: /posts/new
   get "/posts/new" do
+    if session[:user_id]
     erb :"/posts/new.html"
+    else
+    redirect "/posts"
+    end
   end
 
   # POST: /posts
   post "/posts" do
-    redirect "/posts"
+    movie = Movie.find_by(title: params[:title])
+    if movie && !params[:content].empty? && !params[:user_rating].empty?
+      post = Post.create(content: params[:content], user_rating: params[:user_rating], movie_id: movie.id, user_id: session[:user_id])
+      redirect "/posts/#{post.id}"
+    else
+      redirect "/posts/new"
+    end
   end
 
   # GET: /posts/5
