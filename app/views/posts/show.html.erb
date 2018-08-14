@@ -1,1 +1,4 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h1><%=@post.user.username%>'s Review of <%=@post.movie.title%></h1>
+<p> <%=@post.content%> </p>
+<br>
+This user gave this movie a rating of <%=@post.user_rating%>
