@@ -13,11 +13,12 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/users" do
-    if !params[:username].empty? && !params[:password].empty? && !params[:email].empty?
+    if !User.find_by(username: params[:username]) && !params[:username].empty? && !params[:password].empty? && !params[:email].empty?
     user = User.create(username: params[:username], password: params[:password], email: params[:email])
     session[:user_id] = user.id
     redirect "/users/#{user.id}"
     else
+      session[:message] = "Username is already taken."
       redirect "/users/new"
     end
   end
